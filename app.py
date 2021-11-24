@@ -25,11 +25,11 @@ def predict():
     api_key = 'AIzaSyALffU0NRLBe-jQPCnFDsl5uO6XP52HCJQ'
     youtube = build('youtube', 'v3', developerKey=api_key)
 
-    request = youtube.videos().list(
+    request1 = youtube.videos().list(
             part='topicDetails',
             id = newurl[0]
         )
-    response = request.execute()
+    response = request1.execute()
     res = response['items'][0]['topicDetails']['topicCategories']
 
     for i in res:
