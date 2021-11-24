@@ -21,7 +21,6 @@ def predict():
     data = request.args['t']
     newurl = data.replace('https://www.youtube.com/watch?v=', '')
     newurl = newurl.split("&ab_channel", 1)
-    from googleapiclient.discovery import build
 
     api_key = 'AIzaSyALffU0NRLBe-jQPCnFDsl5uO6XP52HCJQ'
     youtube = build('youtube', 'v3', developerKey=api_key)
