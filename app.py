@@ -1,12 +1,6 @@
-from PIL import Image
-from io import BytesIO
-import urllib.request
+
 from flask import Flask, jsonify
 from flask import request
-
-
-import requests
-
 from googleapiclient.discovery import build
 
 
