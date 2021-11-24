@@ -27,7 +27,7 @@ def predict():
     res = response['items'][0]['topicDetails']['topicCategories']
 
     for i in res:
-      if ((i.find('game') != -1) or (i.find('movie') != -1) or (i.find('entertainment') != -1) or (i.find('tv') != -1)) :
+      if ((i.find('game') != -1) or (i.find('movie') != -1) or (i.find('entertainment') != -1) or (i.find('tv') != -1)) or (i.find('sport') != -1) or (i.find('gaming') != -1)  or (i.find('film') != -1):
           predictions = 1
           break
       else:
