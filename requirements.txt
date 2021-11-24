@@ -18,6 +18,9 @@ typing-extensions==3.10.0.2
 Werkzeug==2.0.2
 zipp==3.6.0
 gunicorn
-google-api-python-client
-google-auth-httplib2
-google-auth-oauthlib
+google-api-python-client==2.31.0
+google-auth-httplib2==0.1.0
+google-auth==2.3.3
+google-cloud-pubsub==2.9.0
+google-cloud-iot==2.3.0
+grpc-google-iam-v1==0.12.3
