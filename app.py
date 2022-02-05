@@ -13,7 +13,7 @@ def predict():
     
     #data = request.get_json
     data = request.args['t']
-    cat = request.args['cat]
+    cat = request.args['cat']
     
     newurl = data.replace('https://www.youtube.com/watch?v=', '')
     newurl = newurl.split("&ab_channel", 1)
@@ -49,7 +49,7 @@ def predict():
           if ((i.find('education') != -1) or (i.find('knowledge') != -1) or (i.find('science') != -1) or (i.find('mathematics') != -1) or (i.find('academics') != -1)):
             predictions = 1
             break
-
+    
     output = {'results': predictions}
     return jsonify(results=output)
 
