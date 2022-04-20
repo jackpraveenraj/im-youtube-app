@@ -13,7 +13,6 @@ def predict():
     
     #data = request.get_json
     data = request.args['t']
-    cat = request.args['cat']
     
     newurl = data.replace('https://www.youtube.com/watch?v=', '')
     newurl = newurl.split("&ab_channel", 1)
@@ -28,29 +27,26 @@ def predict():
     response = request1.execute()
     res = response['items'][0]['topicDetails']['topicCategories']
 
-    predictions = 0
-    cats = cat.split(",")
+    g = 0
+    en = 0
+    s = 0
+    edu = 0
                        
     for i in res:
-      for j in cats:
-        if j == "game":
-          if ((i.find('game') != -1) or (i.find('gaming') != -1)):
-            predictions = 1
-            break
-        elif j == "entertainment":
-          if ((i.find('entertainment') != -1) or (i.find('movie') != -1) or (i.find('movies') != -1) or (i.find('film') != -1) or (i.find('films') != -1) or (i.find('tv') != -1)):
-            predictions = 1
-            break
-        elif j == "sport":
-          if ((i.find('sport') != -1) or (i.find('sports') != -1)):
-            predictions = 1
-            break
-        elif j == "education":
-          if ((i.find('education') != -1) or (i.find('knowledge') != -1) or (i.find('science') != -1) or (i.find('mathematics') != -1) or (i.find('academics') != -1)):
-            predictions = 1
-            break
+      if ((i.find('game') != -1) or (i.find('gaming') != -1)):
+        g = 1
+      if ((i.find('entertainment') != -1) or (i.find('movie') != -1) or (i.find('movies') != -1) or (i.find('film') != -1) or (i.find('films') != -1) or (i.find('tv') != -1)):
+        en = 1
+      if ((i.find('sport') != -1) or (i.find('sports') != -1)):
+        s = 1
+      if ((i.find('education') != -1) or (i.find('knowledge') != -1) or (i.find('science') != -1) or (i.find('mathematics') != -1) or (i.find('academics') != -1)):
+        edu = 1
     
-    output = {'results': predictions}
+    output = {'games': g
+             'entertainment': en
+             'sports': s
+             'education': edu}
+    
     return jsonify(results=output)
 
 @app.errorhandler(500)
